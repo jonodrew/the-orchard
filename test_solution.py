@@ -54,5 +54,7 @@ class TestSolution:
         assert True is sol._intersects((3, 5), (2, 4))
         assert True is sol._intersects((3, 5), (4, 6))
 
+    def test_solution(self, passing_test_one):
+        sol = Solution(*passing_test_one)
+        assert 24 == sol.solution()
 
-        ]

@@ -7,6 +7,8 @@ class Solution:
     def solution(self):
         if self._array_is_too_short():
             return -1
+        else:
+            return self._potential_solutions()[0]
 
     def _array_is_too_short(self):
         return len(self.apple_trees) < sum([self.alice_number, self.bob_number])
