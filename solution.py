@@ -26,3 +26,5 @@ class Solution:
             start_index += 1
             end_index += 1
         return output
+    def _intersects(self, first_indices, second_indices):
+        return first_indices[0] <= second_indices[0] < first_indices[1] or first_indices[0] < second_indices[1] < first_indices[1]
