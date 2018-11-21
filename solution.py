@@ -10,3 +10,19 @@ class Solution:
 
     def _array_is_too_short(self):
         return len(self.apple_trees) < sum([self.alice_number, self.bob_number])
+
+    def _totals(self):
+        return {
+            "alice": self._total(self.alice_number),
+            "bob": self._total(self.bob_number)
+        }
+
+    def _total(self, person):
+        start_index = 0
+        end_index = person
+        output = {}
+        while end_index <= len(self.apple_trees):
+            output[(start_index, end_index)] = sum(self.apple_trees[start_index:end_index])
+            start_index += 1
+            end_index += 1
+        return output
