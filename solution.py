@@ -26,5 +26,15 @@ class Solution:
             start_index += 1
             end_index += 1
         return output
+    def _potential_solutions(self):
+        potential_totals = []
+        for alice_index in self._total(self.alice_number):
+            for bob_index in self._total(self.bob_number):
+                if not self._intersects(alice_index, bob_index):
+                    potential_totals.append(sum(self.apple_trees[bob_index[0]:bob_index[1]]) +
+                                            sum(self.apple_trees[alice_index[0]:alice_index[1]])
+                                            )
+        potential_totals.sort(reverse=True)
+        return potential_totals
     def _intersects(self, first_indices, second_indices):
         return first_indices[0] <= second_indices[0] < first_indices[1] or first_indices[0] < second_indices[1] < first_indices[1]

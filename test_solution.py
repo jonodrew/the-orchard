@@ -36,7 +36,16 @@ class TestSolution:
         }
 
     def test_potential_solutions(self, passing_test_one):
-        assert Solution(*passing_test_one)._potential_solutions() == [
+        expected = sorted([
+            20, 16, 20, 22,
+            16, 20, 22,
+            20, 22, 24,
+            18, 16, 22,
+            19, 17, 22,
+            20, 18, 23, 22
+        ], reverse=True)
+        assert expected == Solution(*passing_test_one)._potential_solutions()
+
     def test_intersects(self, passing_test_one):
         sol = Solution(*passing_test_one)
         assert False is sol._intersects((0, 3), (3, 5))
